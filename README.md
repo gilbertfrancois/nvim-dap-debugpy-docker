@@ -1,12 +1,13 @@
 # Debug Python inside Docker container using NVim DAP and debugpy
 
-Gilbert François Duivesteijn <info@gilbertfrancois.com>
+_Gilbert François Duivesteijn <info@gilbertfrancois.com>_
 
 ## Abstract
 
 This is a guide on how to setup a development environment for python in a
 docker container using NeoVim as the editor and the `remote` plugin to connect
-to the container.
+to the container. Although this is just showing how to setup python, you can
+use the same setup for other languages as well, e.g. C and C++ using `codelldb`.
 
 ## Setup in NeoVim
 
