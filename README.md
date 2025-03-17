@@ -1,4 +1,4 @@
-# Debugging python in a docker container using NeoVim
+# Debug Python inside Docker container using NVim DAP and debugpy
 Gilbert François Duivesteijn <info@gilbertfrancois.com>
 
 ## Abstract
@@ -47,7 +47,7 @@ find the source code in the container. In this case, the source code is in the
 `/app` directory in the container. If you miss this step, the breakpoints will
 not work.
 
-For a full example, see my dotfiles repository: [gilbertfrancois/dotfiles](https://github.com/gilbertfrancois/dotfiles)
+For a full example, see my personal nvim config repository: [gilbertfrancois/nvim](https://github.com/gilbertfrancois/nvim)
 
 ## Building the docker image locally
 
