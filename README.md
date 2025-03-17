@@ -9,7 +9,7 @@ docker container using NeoVim as the editor and the `remote` plugin to connect
 to the container. Although this is just showing how to setup python, you can
 use the same setup for other languages as well, e.g. C and C++ using `codelldb`.
 
-[![Demo video](https://img.youtube.com/vi/uyMtCpUW-xk/0.jpg)](https://www.youtube.com/watch?v=uyMtCpUW-xk)
+[![Demo video](https://img.youtube.com/vi/uyMtCpUW-xk/hqdefault.jpg)](https://www.youtube.com/watch?v=uyMtCpUW-xk)
 
 ## Setup in NeoVim
 
