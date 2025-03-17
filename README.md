@@ -1,9 +1,12 @@
 # Debug Python inside Docker container using NVim DAP and debugpy
+
 Gilbert François Duivesteijn <info@gilbertfrancois.com>
 
 ## Abstract
 
-This is a guide on how to setup a development environment for python in a docker container using NeoVim as the editor and the `remote` plugin to connect to the container.
+This is a guide on how to setup a development environment for python in a
+docker container using NeoVim as the editor and the `remote` plugin to connect
+to the container.
 
 ## Setup in NeoVim
 
@@ -42,12 +45,13 @@ In your debug.lua section, you can add the following:
     }
 ```
 
-__Note:__ The `pathMappings` section is important. It tells the debugger where to
+**Note:** The `pathMappings` section is important. It tells the debugger where to
 find the source code in the container. In this case, the source code is in the
 `/app` directory in the container. If you miss this step, the breakpoints will
 not work.
 
-For a full example, see my personal nvim config repository: [gilbertfrancois/nvim](https://github.com/gilbertfrancois/nvim)
+For a full example, see my personal nvim config repository:
+[gilbertfrancois/nvim](https://github.com/gilbertfrancois/nvim)
 
 ## Building the docker image locally
 
@@ -59,13 +63,19 @@ docker buildx build -t my-python-container:latest --local .
 
 ## Starting the docker container
 
-To start the docker container, you can use the following command:
+The CMD inside the docker container is set to (see the Dockerfile):
+
+```bash
+python -Xfrozen_modules=off -m debugpy --listen 0.0.0.0:5678 --wait-for-client /app/main.py
+```
+
+This starts the debugpy server and waits for a client to connect. Start the container with:
 
 ```bash
 docker run --rm -v $(pwd):/app -p 5678:5678 my-python-container:latest
 ```
 
-__Note:__ The `-v $(pwd):/app` flag mounts the current directory to the `/app`. This
+**Note:** The `-v $(pwd):/app` flag mounts the current directory to the `/app`. This
 is important because the `pathMappings` section in the `debug.lua` file expects
 the source code to be in the `/app` directory.
 
@@ -77,3 +87,5 @@ To start debugging in NeoVim, you can use the following command:
 :DapContinue
 ```
 
+This will connect to the debugpy server running in the docker container at 0.0.0.0:5678. The breakpoints should work now
+and you can start debugging your python code.
