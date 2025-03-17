@@ -10,7 +10,7 @@ to the container. Although this is just showing how to setup python, you can
 use the same setup for other languages as well, e.g. C and C++ using `codelldb`.
 
 <!-- [![Demo video](https://img.youtube.com/vi/uyMtCpUW-xk/maxresdefault.jpg)](https://www.youtube.com/watch?v=uyMtCpUW-xk) -->
-[<img src="https://i.ytimg.com/vi/uyMtCpUW-xk/maxresdefault.jpg" width="50%">](https://www.youtube.com/watch?v=uyMtCpUW-xk "Demo video, click to watch")
+[<img src="https://i.ytimg.com/vi/uyMtCpUW-xk/maxresdefault.jpg" width="100%">](https://www.youtube.com/watch?v=uyMtCpUW-xk "Demo video, click to watch")
 
 ## Setup in NeoVim
 
