@@ -33,7 +33,8 @@ In your debug.lua section, you can add the following:
                 port = 5678,
             },
             mode = 'remote',
-            name = 'Attach to Docker python debugpy',
+            name = 'Attach to Docker python in /app',
+            redirectOutput = true,
             justMyCode = true,
             pathMappings = {
                 {
@@ -45,10 +46,17 @@ In your debug.lua section, you can add the following:
     }
 ```
 
-**Note:** The `pathMappings` section is important. It tells the debugger where to
+**Notes:** 
+- The `pathMappings` section is important. It tells the debugger where to
 find the source code in the container. In this case, the source code is in the
 `/app` directory in the container. If you miss this step, the breakpoints will
 not work.
+- You can add more configurations for different python projects. Just copy the
+`dap.configurations.python` section and change the `name` and `pathMappings` to
+fit your project.
+- Enable `redirectOutput` to see the output of the python script in the terminal
+window.
+
 
 For a full example, see my personal nvim config repository:
 [gilbertfrancois/nvim](https://github.com/gilbertfrancois/nvim)
@@ -68,6 +76,13 @@ The CMD inside the docker container is set to (see the Dockerfile):
 ```bash
 python -Xfrozen_modules=off -m debugpy --listen 0.0.0.0:5678 --wait-for-client /app/main.py
 ```
+
+**Notes:** 
+- The `--wait-for-client` flag is important. It tells the debugpy server to wait
+for a client to connect before starting the python script.
+- The `-Xfrozen_modules=off` flag is needed to disable the frozen modules feature
+in python. This is needed because the debugpy server needs to be able to import
+the `debugpy` module.
 
 This starts the debugpy server and waits for a client to connect. Start the container with:
 
