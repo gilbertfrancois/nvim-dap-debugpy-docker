@@ -1,6 +1,6 @@
 # Debug Python inside Docker container using NVim DAP and debugpy
 
-_Gilbert François Duivesteijn <info@gilbertfrancois.com>_
+_Gilbert François Duivesteijn_
 
 ## Abstract
 
